@@ -1,0 +1,26 @@
+function amazingNumber(num) {
+  let sum = 0;
+  let numero = Number(num);
+  let a = Number(num);
+
+  while (numero !== 0) {
+    let x = numero % 10;
+    sum += x;
+    numero = (numero - x) / 10;
+  }
+
+  let sumX = 0;
+  while (sum !== 0 || sumX == 9) {
+    sumX = sum % 10;
+    if (sumX == 9) {
+      break;
+    }
+    sum = (sum - sumX) / 10;
+  }
+  if (sumX == 9) {
+    console.log(`${a} Amazing? True`);
+  } else {
+    console.log(`${a} Amazing? False`);
+  }
+
+}
