@@ -1,0 +1,10 @@
+function rightPlace(string, sym, result) {
+
+    let output = string.replace('_', sym);
+    
+    if (output === result) {
+        console.log('Matched');
+    } else {
+        console.log('Not Matched');
+    }
+}
