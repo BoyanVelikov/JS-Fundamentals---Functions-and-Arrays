@@ -1,0 +1,5 @@
+function fuelMoney(pistance, passengers, price) {
+    let fuelConsumption = (pistance / 100) * 7 + (passengers * 0.1);
+    let fuelLast = fuelConsumption * price;
+    console.log(`Needed money for that trip is ${fuelLast} dollars.`);
+}
