@@ -1,0 +1,5 @@
+function gramophone(bandName, album, songName) {
+  let songDuration = (album.length * bandName.length) * songName.length / 2;
+  let x = songDuration / 2.5;
+  console.log(`The plate was rotated ${Math.ceil(x)} times.`);
+}
