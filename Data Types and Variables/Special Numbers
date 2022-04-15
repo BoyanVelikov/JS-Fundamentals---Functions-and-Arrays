@@ -1,0 +1,20 @@
+function specialNumbers(number) {
+    let x = Number(number);
+    let sum = 0;
+    
+    for (let i = 1; i <= x; i++) {
+        let a = i;
+        while (a !== 0) {
+            y = a % 10;
+            sum += y;
+            a = (a - y) / 10;
+        }
+        if (sum == 5 || sum == 7 || sum == 11) {
+            console.log(`${i} -> True`);
+            sum = 0;
+        } else {
+            console.log(`${i} -> False`);
+            sum = 0;
+        }
+    }
+}
