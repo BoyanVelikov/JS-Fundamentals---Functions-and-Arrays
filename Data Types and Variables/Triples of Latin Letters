@@ -1,0 +1,12 @@
+function triplesLatinLetters(number) {
+    let print = '';
+    let n = Number(number);
+    
+    for (let i = 97; i < (97 + n); i++) {
+        for (let k = 97; k < (97 + n); k++) {
+            for (let j = 97; j < (97 + n); j++) {
+                console.log(`${String.fromCharCode(i)}${String.fromCharCode(k)}${String.fromCharCode(j)}`);
+            }
+        }
+    }
+}
