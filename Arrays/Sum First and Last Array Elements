@@ -1,0 +1,4 @@
+function sumFirstAndLastNum(numArray) {
+  let sum = numArray[0] + numArray[numArray.length - 1];
+  console.log(sum);
+}
