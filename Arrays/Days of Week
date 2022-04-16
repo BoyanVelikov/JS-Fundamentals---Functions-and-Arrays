@@ -1,0 +1,10 @@
+function dayOfWeek(day) {
+    let x = Number(day);
+    let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    if (x >= 0 && x <= 7) {
+        console.log(days[x - 1]);
+    } else {
+        console.log("Invalid day!");
+    }
+}
