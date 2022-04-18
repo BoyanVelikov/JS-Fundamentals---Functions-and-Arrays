@@ -1,0 +1,14 @@
+function evenOdd(input) {
+    let sumEven = 0;
+    let sumOdd = 0;
+
+    for (i = 0; i <= input.length - 1; i++) {
+        let x = input[i];
+        if (x % 2 === 0) {
+            sumEven += x;
+        } else {
+            sumOdd += x;
+        }
+    }
+    console.log(sumEven - sumOdd);
+}
