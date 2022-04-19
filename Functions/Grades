@@ -1,0 +1,14 @@
+function grade(gradeAsNum) {
+    let result = Number(gradeAsNum);
+    if (result <= 2.99) {
+        console.log("Fail");
+    } else if (result <= 3.49) {
+        console.log("Poor");
+    } else if (result <= 4.49) {
+        console.log("Good");
+    } else if (result <= 5.49) {
+        console.log("Very good");
+    } else {
+        console.log("Excellent");
+    }
+}
