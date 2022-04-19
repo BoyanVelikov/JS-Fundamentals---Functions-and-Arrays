@@ -1,0 +1,12 @@
+function magicSum(arr, num) {
+    let sum = 0;
+    for (let i = 0; i <= arr.length - 1; i++) {
+        for (let j = i + 1; j <= arr.length - 1; j++) {
+            let x = arr[i] + arr[j];
+            if (x == num) {
+                console.log(`${arr[i]} ${arr[j]}`);
+            }
+        }
+
+    }
+}
