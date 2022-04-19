@@ -1,0 +1,13 @@
+function arrayRotation(arr, num) {
+    let result = '';
+    let newArray = Array(arr.length);
+    let z = arr.length;
+    for (i = 0; i < num; i++) {
+        arr.push(arr[i]);
+
+    }
+    for (let i = num; i <= arr.length - 1; i++) {
+        result += `${arr[i]} `;
+    }
+    console.log(result);
+}
