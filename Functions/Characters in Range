@@ -1,0 +1,24 @@
+function charactersInRange(firstChar, secondChar) {
+    let firstSymbol = firstChar.charCodeAt();
+    let secondSymbol = secondChar.charCodeAt();
+    let result = '';
+
+    function symbolsRotationUp() {
+        for (let i = secondSymbol + 1; i < firstSymbol; i++) {
+            result += String.fromCharCode(i) + " ";
+        }
+        console.log(result);
+    }
+
+    function symbolsRotationDown() {
+        for (let i = firstSymbol + 1; i < secondSymbol; i++) {
+            result += String.fromCharCode(i) + " ";
+        }
+        console.log(result);
+    }
+    if (firstSymbol >= secondSymbol) {
+        (symbolsRotationUp());
+    } else {
+        (symbolsRotationDown());
+    }
+}
