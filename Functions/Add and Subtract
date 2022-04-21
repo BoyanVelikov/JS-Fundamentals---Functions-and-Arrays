@@ -1,0 +1,10 @@
+function addSubtract(firstNumber, secondNumber, thirdNumber) {
+  function sum() {
+    return (firstNumber + secondNumber);
+  }
+
+  function subtract() {
+    console.log(sum() - thirdNumber);
+  }
+  subtract();
+}
