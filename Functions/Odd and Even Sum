@@ -1,0 +1,16 @@
+function oddEvenSum(input) {
+    let resultOdd = 0;
+    let resultEven = 0;
+    let newNumber = input;
+    while (newNumber > 0) {
+        x = newNumber % 10;
+        if (x % 2 == 0) {
+            resultEven += x;
+        } else {
+            resultOdd += x;
+        }
+        newNumber = (newNumber - x) / 10;
+    }
+
+    console.log(`Odd sum = ${resultOdd}, Even sum = ${resultEven}`);
+}
