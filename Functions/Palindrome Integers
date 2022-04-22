@@ -1,0 +1,17 @@
+function palindrome(input) {
+    for (i = 0; i < input.length; i++) {
+        let number = input[i];
+        let z = number;
+        let reverseNumber = '';
+        while (z > 0) {
+            let x = z % 10;
+            reverseNumber += x;
+            z = (z - x) / 10;
+        }
+        if (reverseNumber == number) {
+            console.log('true');
+        } else {
+            console.log('false');
+        }
+    }
+}
