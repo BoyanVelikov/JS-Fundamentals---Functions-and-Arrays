@@ -1,0 +1,9 @@
+function matrix(input) {
+    let result = '';
+    for (i = 1; i <= input; i++) {
+        result += input + " ";
+    }
+    for (j = 1; j <= input; j++) {
+        console.log(result);
+    }
+}
