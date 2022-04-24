@@ -1,0 +1,14 @@
+function negativePositive(input) {
+    let newArray = [];
+    for (let i = 0; i < input.length; i++) {
+        let x = input[i];
+        if (x >= 0) {
+            newArray.push(x);
+        } else {
+            newArray.unshift(x);
+        }
+    }
+    for (let i = 0; i < input.length; i++) {
+        console.log(newArray[i]);
+    }
+}
