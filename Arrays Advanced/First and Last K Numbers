@@ -1,0 +1,7 @@
+function numbers(arr) {
+    let k = arr.shift();
+    let num = arr.slice(0, k);
+    let num2 = arr.slice(arr.length - k);
+    console.log(num.join(' '));
+    console.log(num2.join(' '));
+}
