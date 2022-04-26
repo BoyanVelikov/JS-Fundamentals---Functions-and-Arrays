@@ -1,0 +1,14 @@
+function distinctArray(arr) {
+   let newArr = [];
+   let lengthFirst = arr.length;
+   while (arr.length != 0) {
+      x = arr.shift();
+      for (j = 0; j < lengthFirst; j++) {
+         if (x == arr[j]) {
+            arr.splice(j, 1);
+         }
+      }
+      newArr.push(x);
+   }
+   console.log(newArr.join(' '));
+}
