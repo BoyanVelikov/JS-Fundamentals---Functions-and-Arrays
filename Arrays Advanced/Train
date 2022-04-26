@@ -1,0 +1,36 @@
+function train(arr) {
+   let wagonsArr = arr[0].split(" ");
+   for (i = 0; i < wagonsArr.length; i++) {
+      wagonsArr[i] = parseInt(wagonsArr[i]);
+   }
+   let maxCapacity = parseInt(arr[1]);
+   let counter = 0;
+   let extraPass = [];
+   arr.splice(0, 2);
+   let b = arr.length;
+
+   for (i = 0; i < b; i++) {
+      let x = arr.shift();
+      let y = x.split(" ");
+      if (y[0] === "Add") {
+         wagonsArr.push(parseInt(y[1]));
+         counter += 1;
+      } else {
+         extraPass.push(x);
+      }
+   }
+   for (i = 0; i < extraPass.length; i++) {
+      extraPass[i] = parseInt(extraPass[i]);
+   }
+
+   for (j = 0; j < wagonsArr.length; j++) {
+      let a = wagonsArr[j];
+      for (z = 0; z < extraPass.length; z++) {
+         if (wagonsArr[j] + extraPass[z] <= maxCapacity) {
+            wagonsArr[j] += extraPass[z];
+            extraPass[z] = 0;
+         }
+      }
+   }
+   console.log(wagonsArr.join(" "));
+}
