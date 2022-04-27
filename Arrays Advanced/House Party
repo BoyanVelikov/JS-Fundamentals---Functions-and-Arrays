@@ -1,0 +1,36 @@
+function houseParty(arr) {
+    let finalArr = [];
+    let counter = 0;
+    for (i = 0; i < arr.length; i++) {
+        let x = arr[i].split(" ");
+        if (x[2] === "going!") {
+            if (finalArr.length == 0) {
+                finalArr.push(x[0]);
+            } else {
+                counter = 0;
+                for (j = 0; j < finalArr.length; j++) {
+
+                    if (x[0] === finalArr[j]) {
+                        console.log(`${x[0]} is already in the list!`);
+                        counter += 1;
+                    }
+                }
+                if (counter == 0) {
+                    finalArr.push(x[0]);
+                }
+
+            }
+        } else if (x[2] === "not") {
+            let arr1 = finalArr.filter(q => q === x[0]);
+            if (arr1.length == 0) {
+                console.log(`${x[0]} is not in the list!`);
+            } else {
+                let z = finalArr.indexOf(x[0]);
+                finalArr.splice(z, 1);
+            }
+        }
+    }
+    for (r = 0; r < finalArr.length; r++) {
+        console.log(finalArr[r]);
+    }
+}
