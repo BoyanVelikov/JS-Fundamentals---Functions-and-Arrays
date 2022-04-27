@@ -1,0 +1,15 @@
+function sorting(arr) {
+    let z = arr.length;
+    let newArr = [];
+    for (i = 0; i < z; i = i + 2) {
+        let x = Math.max(...arr);
+        newArr[i] = x;
+        arr.splice(arr.indexOf(x), 1);
+    }
+    for (i = 1; i < z; i = i + 2) {
+        x = Math.min(...arr);
+        newArr[i] = x;
+        arr.splice(arr.indexOf(x), 1);
+    }
+    console.log(newArr.join(' '));
+}
