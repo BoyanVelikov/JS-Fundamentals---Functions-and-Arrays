@@ -1,0 +1,6 @@
+function sort(input) {
+    let sorted = input.sort((a, b) => a.length - b.length || a.localeCompare(b));
+    for (i = 0; i < sorted.length; i++) {
+        console.log(sorted[i]);
+    }
+}
