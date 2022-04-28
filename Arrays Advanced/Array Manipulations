@@ -1,0 +1,22 @@
+function arrayManipulations(input) {
+    let cycle = input.length;
+    let string1 = input.shift();
+    let arrMan = string1.split(" ");
+    for (i = 0; i < cycle - 1; i++) {
+        let x = input.shift();
+        let y = x.split(" ");
+        let z = y[1];
+        let z1 = y[2];
+        if (y[0] == 'Add' && y.length == 2) {
+            arrMan.push(z);
+        } else if (y[0] == 'Remove' && y.length == 2) {
+            arrMan = arrMan.filter(x => x != 2);
+        } else if (y[0] == 'RemoveAt' && y.length == 2) {
+            arrMan.splice(z, 1);
+        } else if (y[0] == 'Insert' && y.length == 3) {
+            arrMan.splice(z1, 0, z);
+        }
+
+    }
+    console.log(arrMan.join(" "));
+}
