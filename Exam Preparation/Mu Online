@@ -1,0 +1,40 @@
+function muOnline(input) {
+    let healthPoints = 100;
+    let bitcoins = 0;
+    let level = 0;
+    let arr = input.split("|");
+    for (i = 0; i < arr.length; i++) {
+        let x = arr[i].split(" ");
+        level += 1;
+        let num = Number(x[1]);
+        if (x[0] !== "chest" && x[0] !== "potion" && healthPoints > num) {
+            console.log(`You defeated a ${x[0]}.`);
+            healthPoints = healthPoints - num;
+        } else if (x[0] === "potion") {
+            if ((num + healthPoints) > 100) {
+                let z = 100 - healthPoints;
+                healthPoints = 100;
+                console.log(`You healed for ${z} hp.`);
+                console.log(`Current health: 100 hp.`);
+            } else {
+                healthPoints = healthPoints + num;
+                console.log(`You healed for ${num} hp.`);
+                console.log(`Current health: ${healthPoints} hp.`);
+            }
+        } else if (x[0] === "chest" && healthPoints > 0) {
+            console.log(`You found ${num} bitcoins.`);
+            bitcoins += num;
+        }
+        if (x[0] !== "chest" && x[0] !== "potion" && healthPoints <= num) {
+            console.log(`You died! Killed by ${x[0]}.`);
+            console.log(`Highest level reached: ${level}`);
+            healthPoints = 0;
+            arr.length = 0;
+        }
+    }
+    if (healthPoints > 0) {
+        console.log("You've made it!");
+        console.log(`Bitcoins: ${bitcoins}`);
+        console.log(`Health: ${healthPoints}`);
+    }
+}
