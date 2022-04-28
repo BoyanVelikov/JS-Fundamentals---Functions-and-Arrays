@@ -1,0 +1,34 @@
+function inventory(input) {
+    let inventory = input.shift().split(", ");
+    for (each of input) {
+        if (each === "Craft!") {
+
+            break;
+        } else {
+            let first = each.split(" - ");
+            let command = first[0];
+            let secondProduct = first[1];
+            let thirdProduct = secondProduct.split(":");
+            let thirdProductLast = thirdProduct[1];
+            let product = inventory.filter(x => x === secondProduct);
+            let product2 = inventory.filter(x => x === thirdProductLast);
+            if (command === "Collect" && !inventory.includes(secondProduct)) {
+                inventory.push(secondProduct);
+            }
+            if (command === "Drop" && inventory.includes(secondProduct)) {
+                z = inventory.indexOf(secondProduct);
+                inventory.splice(z, 1);
+            }
+            if (command === "Combine Items" && product2.length == 0) {
+                v = inventory.indexOf(thirdProduct[0]);
+                inventory.splice(v + 1, 0, thirdProductLast);
+            }
+            if (command === "Renew" && inventory.includes(secondProduct)) {
+                inventory = inventory.filter(x => x !== secondProduct);
+                inventory.push(secondProduct);
+            }
+        }
+
+    }
+    console.log(inventory.join(", "));
+}
