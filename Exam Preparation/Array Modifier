@@ -1,0 +1,24 @@
+function arrayModifier(input) {
+    let fArr = input.shift().split(", ");
+    let sArr = fArr[0].split(" ").map(Number);
+    for (each of input) {
+        if (each === "end") {
+            break;
+        } else if (each === "decrease") {
+            sArr = sArr.map(x => x - 1);
+        } else {
+            let x = each.split(" ");
+            let y = Number(x[1]);
+            let z = Number(x[2]);
+            if (x[0] === "swap") {
+                let a = sArr[z];
+                let b = sArr[y];
+                sArr[y] = sArr[z];
+                sArr[z] = b;
+            } else if (x[0] === "multiply") {
+                sArr[y] = sArr[y] * sArr[z];
+            }
+        }
+    }
+    console.log(sArr.join(", "));
+}
