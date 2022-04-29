@@ -1,0 +1,65 @@
+function archeryTournament(input) {
+    let start = input.shift();
+    let b = 0;
+    let counter = 0;
+    let reversed = 0;
+    let reversedArr = [];
+    let targets = start.split("|").map(Number);
+    const targetsLength = targets.length;
+    for (i = 0; i < input.length; i++) {
+        let command = input[i].split(" ");
+        if (command[0] === "Game") {
+            console.log(targets.join(" - "));
+            console.log(`Peter finished the archery tournament with ${counter} points!`);
+            break;
+        } else if (command[0] === "Reverse") {
+            targets = targets.reverse();
+
+        } else if (command[0] === "Shoot") {
+            let targetDirectionIndex = command[1].split("@");
+            let targetDirection = targetDirectionIndex[0];
+            let targetStartIndex = Number(targetDirectionIndex[1]);
+            let targetPassedNumbers = Number(targetDirectionIndex[2]);
+            let desiredIndex = targetStartIndex;
+            if (targetStartIndex > targetsLength - 1 || targetStartIndex < 0) {
+                let b = 0;
+            } else if (targetDirection === "Left") {
+
+
+                let z = targetPassedNumbers % targetsLength;
+                if (targetsLength == 1) {
+                    desiredIndex = 0;
+                } else {
+                    desiredIndex += z + 1;
+                    if (desiredIndex > targetsLength - 1) {
+                        desiredIndex = 0;
+                    }
+                }
+                if (targets[desiredIndex] >= 10) {
+                    counter += 5;
+                    targets[desiredIndex] = targets[desiredIndex] - 5;
+                } else {
+                    counter += targets[desiredIndex];
+                    targets[desiredIndex] = 0;
+                }
+
+            } else if (targetDirection === "Right") {
+
+                z = targetPassedNumbers % targetsLength;
+                if (targetsLength == 1) {
+                    desiredIndex = 0;
+                } else {
+                    desiredIndex = desiredIndex + z;
+                }
+                if (targets[desiredIndex] >= 10) {
+                    counter += 5;
+                    targets[desiredIndex] = targets[desiredIndex] - 5;
+                } else {
+                    counter += targets[desiredIndex];
+                    targets[desiredIndex] = 0;
+                }
+
+            }
+        }
+    }
+}
