@@ -1,0 +1,26 @@
+function lift(input) {
+    let queue = Number(input[0]);
+    let liftArr = input[1].split(" ").map(Number);
+    for (i = 0; i < liftArr.length; i++) {
+        let difference = 4 - liftArr[i];
+        let remainder = queue - difference;
+        if (remainder > 0) {
+            queue = queue - difference;
+            liftArr[i] = 4;
+        } else {
+            liftArr[i] += queue;
+            queue = 0;
+        }
+    }
+    let lenG = liftArr.length - 1;
+    let finalEl = liftArr[lenG];
+    if (queue == 0 && finalEl == 4) {
+        console.log(liftArr.join(" "));
+    } else if (finalEl == 4) {
+        console.log(`The lift is full. ${queue} people currently in line.`);
+        console.log(liftArr.join(" "));
+    } else if (finalEl < 4) {
+        console.log(`There is room for more passengers!`);
+        console.log(liftArr.join(" "));
+    }
+}
