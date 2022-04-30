@@ -1,0 +1,31 @@
+function schoolLibrary(input) {
+    let start = input.shift();
+    let ind = 0;
+    let bookshelf = start.split("&");
+    for (i = 0; i < input.length; i++) {
+        let x = input[i].split(" | ");
+        let check = bookshelf.includes(x[1]);
+        let check2 = bookshelf.includes(x[2]);
+        if (x[0] === "Done") {
+            break;
+        } else if (x[0] === "Add Book" && !check) {
+            bookshelf.unshift(x[1]);
+        } else if (x[0] === "Take Book" && check) {
+            b = bookshelf.indexOf(x[1]);
+            bookshelf.splice(b, 1);
+        } else if (x[0] === "Swap Books" && check && check2) {
+            let index1 = bookshelf.indexOf(x[1]);
+            let index2 = bookshelf.indexOf(x[2]);
+            bookshelf[index2] = x[1];
+            bookshelf[index1] = x[2];
+        } else if (x[0] === "Insert Book") {
+            bookshelf.push(x[1]);
+        } else if (x[0] === "Check Book") {
+            let ind = x[1];
+            if (ind >= 0 && ind < bookshelf.length) {
+                console.log(bookshelf[x[1]]);
+            }
+        }
+    }
+    console.log(bookshelf.join(", "));
+}
